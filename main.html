@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>local storage</title>
+</head>
+<body>
+    <input type="text" id="pole">
+    <button id="przycisk">Zapisz w Local Storage</button>
+    <button id="usun">Usuń</button>
+    <ul id="wpis"></ul>
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+
+        // $('przycisk').click(function(){
+        //     var a = document.getElementsById('wpis').value;
+        //     a = localStorage.getItem('wpis');
+	    //     var newText = document.getElementById('pole').value;
+	    //     $('wpis').append('<div>'+newText+'</div>');
+	    //     localStorage.setItem('wpis', a.innerHTML);
+        // });
+        function clearlocal() {
+            localStorage.clear();
+        }
+        $('#usun').click(clearlocal);
+
+        var sth = document.getElementById('pole');
+        var sth1 = localStorage.setItem('pole', sth.value); //dodajemy wlasciwosc
+        var sthset = localStorage.getItem(sth1); //pobieramy    
+            
+        function AddSth() {
+           
+            $("#przycisk").click(function click1() {
+                $("#wpis").append('<li>' + sth.value +'</li>');  
+            localStorage.setItem('pole', document.querySelector('#wpis li').textContent);
+            });  //jak kliknie to wpisze do listy input
+            
+            
+        
+        }
+
+        
+
+        AddSth();
+        
+    </script>
+</body>
+</html>
